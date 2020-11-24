@@ -5,6 +5,20 @@ We are very welcome for any contribution, such as fixing coding style and sugges
 
 # sbt RemoteCache git tree
 
+[ ![Bintray](https://api.bintray.com/packages/tomykaira/sbt-plugins/sbt-remote-cache-git-tree/images/download.svg) ](https://bintray.com/tomykaira/sbt-plugins/sbt-remote-cache-git-tree/_latestVersion)
+
+## Installation
+
+Write the line to `project/plugins.sbt`.
+This is auto plugin, `remoteCacheId` and `remoteCacheIdCandidates` of your projects are automatically configured.
+
+```
+addSbtPlugin("io.github.tomykaira" % "sbt-remote-cache-git-tree" % "0.1.0")
+```
+
+If you want to disable the feature for subprojects, use `disablePlugins`.
+See [sbt doc](https://www.scala-sbt.org/1.x/docs/Plugins.html) for details.
+
 ## Motivation
 
 Sbt 1.4 introduced [RemoteCache](https://eed3si9n.com/remote-caching-sbt-builds-with-bintray) mechanism.
@@ -32,3 +46,13 @@ if the git working directory is dirty, sbt original `remoteCacheId` will be atta
 
 - `remoteCacheGitTreeGoBackCommitCount`: Configure how many previous commits are included in `remoteCacheIdCandidates`. Default is `10`.
 - `remoteCacheGitTreeIgnoreDirtyState`: If true, `remoteCacheId` does not contain file hash based suffix even if the working tree is dirty. This is useful if other steps in CI change versioned files. Default is `false`.
+
+## Release
+
+(note for me)
+
+Rewrite version in `build.sbt` and `README.md`.
+
+```
+publish
+```
